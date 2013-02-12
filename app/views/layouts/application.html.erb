@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vbook</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title><%= t('.title') %></title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller.controller_name %> <%= action_name %>">
   <div class="container">
     <%= render 'layouts/navbar' %>
     <%= yield %>

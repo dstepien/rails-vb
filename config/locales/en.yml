@@ -2,4 +2,15 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  home:
+    catalog:
+      title: "Books catalog"
+      pages: "Pages:"
+      published: "Published:"
+      isbn: "ISBN:"
+      by: "by"
+  menu:
+    catalog: "Catalog"
+  layouts:
+    application:
+      title: "Virtual Bookshelf"
