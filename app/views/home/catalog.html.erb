@@ -1,5 +1,7 @@
 <h1><%= t('.title') %></h1>
 
+<%= will_paginate @books %>
+
 <% @books.each do |book| %>
   <div class="row book-row">
     <div class="span12">
@@ -20,3 +22,5 @@
     </div>
   </div>
 <% end %>
+
+<%= will_paginate @books %>
