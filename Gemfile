@@ -5,10 +5,10 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem "will_paginate", "~> 3.0.4"
 gem 'bootstrap-will_paginate', '~> 0.0.9'
+gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +22,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :test do
+  gem 'simplecov', require: false
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
