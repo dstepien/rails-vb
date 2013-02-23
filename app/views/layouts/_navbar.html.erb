@@ -2,6 +2,7 @@
   <div class="navbar-inner">
     <a class="brand" href="<%= root_path %>"><%= t('layouts.application.title') %></a>
     <ul class="nav">
+      <%= nav_link t('menu.catalog'), { controller: :home, action: :catalog } %>
     </ul>
     <ul class="nav pull-right">
       <li class="dropdown">
