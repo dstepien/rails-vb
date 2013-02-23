@@ -18,3 +18,12 @@ en:
   layouts:
     application:
       title: "Virtual Bookshelf"
+  books:
+    published: "Published:"
+    others:
+      published: "Published:"
+      isbn: "ISBN:"
+      pages: "Pages:"
+    actions:
+      edit: "Edit"
+      destroy: "Destroy"
