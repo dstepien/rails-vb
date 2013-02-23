@@ -1,5 +1,7 @@
 <h1>Listing books</h1>
 
+<%= will_paginate @books %>
+
 <table>
   <tr>
     <th>Title</th>
@@ -23,6 +25,8 @@
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @books %>
 
 <br />
 
