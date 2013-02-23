@@ -11,6 +11,10 @@ en:
       by: "by"
   menu:
     catalog: "Catalog"
+    books:
+      label: "Books"
+      show: "Show"
+      add: "Add"
   layouts:
     application:
       title: "Virtual Bookshelf"
