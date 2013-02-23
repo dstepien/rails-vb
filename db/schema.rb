@@ -11,17 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212180622) do
+ActiveRecord::Schema.define(:version => 20130223125327) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "isbn"
     t.date     "publishing_date"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "author"
     t.integer  "pages"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
 end

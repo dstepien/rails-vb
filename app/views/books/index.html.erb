@@ -5,6 +5,9 @@
 <ul class="list unstyled">
   <% @books.each do |book| %>
   <li>
+    <div class="cover">
+      <%= image_tag book.cover.url(:thumb) %>
+    </div>
     <div class="title"><%= link_to book.title, book %></div>
     <div class="description">
       <%= truncate book.description, length: 100, separator: '...' %>
