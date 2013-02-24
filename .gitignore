@@ -22,4 +22,9 @@ doc/
 .DS_Store
 .idea
 /coverage
-/public/assets
+public/assets/*
+!public/assets/books
+public/assets/books/*
+!public/assets/books/thumb
+public/assets/books/thumb/*
+!public/assets/books/thumb/missing.gif
