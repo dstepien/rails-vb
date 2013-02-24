@@ -2,43 +2,37 @@
 
 <%= will_paginate @books %>
 
-<ul class="list unstyled">
-  <% @books.each do |book| %>
-  <li>
-    <div class="cover">
-      <%= image_tag book.cover.url(:thumb) %>
-    </div>
-    <div class="title"><%= link_to book.title, book %></div>
-    <div class="description">
-      <%= truncate book.description, length: 100, separator: '...' %>
-    </div>
-    <ul class="others unstyled">
-      <li>
-        <span class="list-label"><%= t('books.others.published') %></span>
-        <span><%= book.publishing_date %></span>
-      </li>
-      <li>
-        <span class="list-label"><%= t('books.others.isbn') %></span>
-        <span><%= book.isbn %></span>
-      </li>
-      <li>
-        <span class="list-label"><%= t('books.others.pages') %></span>
-        <span><%= book.pages %></span>
-      </li>
-    </ul>
-    <ul class="actions unstyled">
-      <li>
-        <%= button_to t('books.actions.edit'), edit_book_path(book),
-                      method: :get, class: 'btn btn-mini btn-primary' %>
-      </li>
-      <li>
-        <%= button_to t('books.actions.destroy'), book,
-                      method: :delete, data: { confirm: 'Are you sure?' },
-                      class: 'btn btn-mini btn-danger' %>
-      </li>
-    </ul>
-  </li>
-  <% end %>
-</ul>
+<table class="table table-bordered list">
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= t('books.list.title') %></th>
+    <th><%= t('books.list.author') %></th>
+    <th><%= t('books.list.published') %></th>
+    <th><%= t('books.list.description') %></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td class="cover">
+          <%= image_tag book.cover.url(:thumb) %>
+        </td>
+        <td class="title">
+          <strong><%= link_to book.title, book %></strong>
+        </td>
+        <td class="author">
+          <%= book.author %>
+        </td>
+        <td class="published">
+          <%= book.publishing_date %>
+        </td>
+        <td class="description">
+          <%= truncate book.description, length: 160, separator: ' ' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= will_paginate @books %>

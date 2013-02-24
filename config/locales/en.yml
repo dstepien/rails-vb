@@ -27,3 +27,8 @@ en:
     actions:
       edit: "Edit"
       destroy: "Destroy"
+    list:
+      title: "Title"
+      author: "Author(s)"
+      published: "Published"
+      description: "Description"
