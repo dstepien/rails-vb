@@ -25,6 +25,4 @@ doc/
 public/images/*
 !public/images/books
 public/images/books/*
-!public/images/books/thumb
-public/images/books/thumb/*
-!public/images/books/thumb/missing.gif
+!public/images/books/default
