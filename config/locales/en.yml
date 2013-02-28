@@ -30,3 +30,7 @@ en:
       published: "Published"
       description: "Description"
       header: "Books"
+    form:
+      label:
+        add: "Add book"
+        update: "Update book"

@@ -16,7 +16,7 @@
     <% @books.each do |book| %>
       <tr>
         <td class="cover">
-          <%= image_tag book.cover.url(:thumb) %>
+          <%= image_tag book.cover.url(:thumb), class: 'img-polaroid' %>
         </td>
         <td class="title">
           <strong><%= link_to book.title, book %></strong>

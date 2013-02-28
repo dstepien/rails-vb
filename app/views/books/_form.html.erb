@@ -31,7 +31,8 @@
   </div>
   <ul id="actions" class="inline pull-right">
     <li>
-      <%= form.submit 'Update book', class: 'btn btn-primary' %>
+      <%= form.submit @book.new_record? ? t('books.form.label.add') : t('books.form.label.update'),
+                      class: 'btn btn-primary' %>
     </li>
     <li>
       <%= link_to 'Cancel', @book, class: 'btn', id: 'cancel' %>
