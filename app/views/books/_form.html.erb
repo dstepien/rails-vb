@@ -1,36 +1,40 @@
 <%= form_for @book, html: { multipart: true } do |form| %>
-  <% if @book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
-      <ul>
-      <% @book.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div id="cover" class="fileupload fileupload-new pull-left" data-provides="fileupload">
+    <div class="fileupload-new thumbnail img-polaroid">
+      <%= image_tag @book.cover.url(:edit) %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %><br />
-    <%= form.text_field :title %>
+    <div class="fileupload-preview fileupload-exists thumbnail img-polaroid"></div>
+    <div>
+      <span class="btn btn-file">
+        <span class="fileupload-new">Select image</span>
+        <span class="fileupload-exists">Change</span>
+        <%= form.file_field :cover %>
+      </span>
+      <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :description %><br />
-    <%= form.text_area :description %>
+  <div id="title-description" class="pull-left span7">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'span7' %>
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'span7' %>
   </div>
-  <div class="field">
-    <%= form.label :isbn %><br />
-    <%= form.text_field :isbn %>
+  <div id="details" class="pull-left span2">
+    <%= form.label :author %>
+    <%= form.text_field :author, class: 'input-medium' %>
+    <%= form.label :publishing_date %>
+    <%= form.text_field :publishing_date, class: 'input-medium' %>
+    <%= form.label :pages %>
+    <%= form.text_field :pages, class: 'input-mini' %>
+    <%= form.label :isbn %>
+    <%= form.text_field :isbn, class: 'input-medium' %>
   </div>
-  <div class="field">
-    <%= form.label :publishing_date %><br />
-    <%= form.date_select :publishing_date %>
-  </div>
-  <%= image_tag @book.cover.url %>
-  <div class="field">
-    <%= form.file_field :cover %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <ul id="actions" class="inline pull-right">
+    <li>
+      <%= form.submit 'Update book', class: 'btn btn-primary' %>
+    </li>
+    <li>
+      <%= link_to 'Cancel', @book, class: 'btn', id: 'cancel' %>
+    </li>
+  </ul>
 <% end %>

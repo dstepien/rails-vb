@@ -1,7 +1,9 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.books {
+@import "bootstrap-fileupload.css";
+
+.books-controller.index-action {
   .list {
     .title, .author, .published {
       vertical-align: middle;
@@ -23,6 +25,55 @@
       font-style: italic;
       line-height: 15px;
       width: 215px;
+    }
+  }
+}
+
+.books-controller.show-action {
+  #description {
+    padding: 0 15px;
+    text-align: justify;
+    width: 500px;
+  }
+  #details {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 0 10px 15px;
+    width: 152px;
+  }
+  #actions {
+    clear: both;
+    display: block;
+    margin-top: 50px;
+    a, a:visited, a:hover, a:active {
+      color: #ffffff;
+    }
+  }
+}
+.books-controller.edit-action {
+  h1 {
+    margin-bottom: 20px;
+  }
+  #cover {
+    .fileupload-preview, .fileupload-new {
+      width: 165px;
+      height: 165px;
+    }
+  }
+  #title-description {
+    #book_description {
+      height: 200px;
+    }
+  }
+  #details {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    padding-left: 20px;
+  }
+  #actions {
+    clear: both;
+    margin-top: 20px;
+    #cancel {
+      height: 18px;
+      margin-top: 1px;
     }
   }
 }

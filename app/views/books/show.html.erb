@@ -1,25 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
-
-<p>
-  <b>Description:</b>
+<h2><%= @book.title %></h2>
+<h4><em><%= @book.author %></em></h4>
+<a href="<%= @book.cover.url %>">
+  <%= image_tag @book.cover.url(:medium), class: 'pull-left img-polaroid' %>
+</a>
+<p id="description" class="pull-left">
   <%= @book.description %>
 </p>
-
-<p>
-  <b>Isbn:</b>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <b>Publishing date:</b>
-  <%= @book.publishing_date %>
-</p>
-
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<ul id="details" class="unstyled pull-left">
+  <li>
+    <strong>Published:</strong> <%= @book.publishing_date %>
+  </li>
+  <li>
+    <strong>Pages:</strong> <%= @book.pages %>
+  </li>
+  <li>
+    <strong>ISBN:</strong> <%= @book.isbn %>
+  </li>
+</ul>
+<ul id="actions" class="inline pull-right">
+  <li>
+    <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-info' %>
+  </li>
+  <li>
+    <%= link_to 'Destroy', @book, method: :delete,
+                data: { confirm: 'Are you sure? This operation cannot be undone' },
+                class: 'btn btn-danger' %>
+  </li>
+</ul>
