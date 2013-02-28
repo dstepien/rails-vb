@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= t('.title') %></title>
+  <%= page_title %>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller.controller_name %> <%= action_name %>">
+<%= render_body_tag %>
   <div class="container">
     <%= render 'layouts/navbar' %>
+    <%= notice_message %>
     <%= yield %>
   </div>
 </body>

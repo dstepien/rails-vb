@@ -1,7 +1,6 @@
 module ApplicationHelper
-  def nav_link(body, url)
-    content_tag(:li, :class => ('active' if current_page?(url))) do
-      link_to body, url
-    end
+  def page_title
+    title = @page_title ? "#{@page_title} :: #{SITE_NAME}" : SITE_NAME rescue 'SITE_NAME'
+    content_tag('title', title, nil, false)
   end
 end

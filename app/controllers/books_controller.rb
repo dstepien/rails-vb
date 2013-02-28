@@ -3,15 +3,9 @@ class BooksController < ApplicationController
     @books = Book.paginate(page: params[:page], per_page: 10)
   end
 
-  # GET /books/1
-  # GET /books/1.json
   def show
     @book = Book.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @book }
-    end
+    @page_title = @book.title
   end
 
   # GET /books/new

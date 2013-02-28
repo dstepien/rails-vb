@@ -15,9 +15,6 @@ en:
       label: "Books"
       show: "Show"
       add: "Add"
-  layouts:
-    application:
-      title: "Virtual Bookshelf"
   books:
     published: "Published:"
     others:
@@ -32,3 +29,4 @@ en:
       author: "Author(s)"
       published: "Published"
       description: "Description"
+      header: "Books"

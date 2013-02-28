@@ -10,6 +10,7 @@ gem "will_paginate", "~> 3.0.4"
 gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
+gem 'bootstrap_helper'
 
 # Gems used only for assets and not required
 # in production environments by default.

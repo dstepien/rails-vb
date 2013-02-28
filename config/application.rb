@@ -1,5 +1,4 @@
 require File.expand_path('../boot', __FILE__)
-
 require 'rails/all'
 
 if defined?(Bundler)
@@ -8,6 +7,8 @@ if defined?(Bundler)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
+
+SITE_NAME = "Virtual Bookshelf"
 
 module Vbook
   class Application < Rails::Application
