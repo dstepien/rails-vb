@@ -1,6 +1,6 @@
 <h2><%= @book.title %></h2>
 <h4><em><%= @book.author %></em></h4>
-<a href="<%= @book.cover.url %>">
+<a href="<%= @book.cover.url %>" class="fancybox">
   <%= image_tag @book.cover.url(:medium), class: 'pull-left img-polaroid' %>
 </a>
 <p id="description" class="pull-left">
