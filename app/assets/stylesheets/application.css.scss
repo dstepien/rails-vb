@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+a.btn, a.btn:visited, a.btn:hover, a.btn:active {
+  color: #ffffff;
+  outline: none;
+}

@@ -1,0 +1,23 @@
+<h1><%= t('authors.list.header') %></h1>
+
+<%= will_paginate @authors %>
+
+<table class="table table-bordered list">
+  <tr>
+    <th><%= t('authors.list.name') %></th>
+    <th></th>
+  </tr>
+  <% @authors.each do |author| %>
+    <tr>
+      <td class="name">
+        <strong><%= link_to author.name, edit_author_path(author) %></strong>
+      </td>
+      <td class="actions">
+        <%= link_to t('authors.list.destroy'), author, method: :delete, data: { confirm: 'Are you sure?' },
+                    class: 'btn btn-danger btn-small' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @authors %>

@@ -17,6 +17,16 @@
           li << link_to(t('menu.books.add'), new_book_path)
         end %>
       </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <%= t('menu.authors.label') %>
+          <b class="caret"></b>
+        </a>
+        <%= render_list class: "dropdown-menu" do |li|
+          li << link_to(t('menu.authors.show'), authors_path)
+          li << link_to(t('menu.authors.add'), new_author_path)
+        end %>
+      </li>
     </ul>
   </div>
 </div>

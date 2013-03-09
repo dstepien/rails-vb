@@ -1,7 +1,7 @@
 Vbook::Application.routes.draw do
-
   scope '(:locale)' do
     resources :books
+    resources :authors
     get 'home/index'
     get 'home/catalog'
     root :to => 'home#index'

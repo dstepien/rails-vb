@@ -15,6 +15,10 @@ en:
       label: "Books"
       show: "Show"
       add: "Add"
+    authors:
+      label: "Authors"
+      show: "Show"
+      add: "Add"
   books:
     published: "Published:"
     others:
@@ -34,3 +38,15 @@ en:
       label:
         add: "Add book"
         update: "Update book"
+  authors:
+    list:
+      header: "Authors"
+      destroy: "Destroy"
+      name: "Name"
+  titles:
+    books:
+      index: "Books"
+      new: "New book"
+    authors:
+      new: "New author"
+      index: "Authors"

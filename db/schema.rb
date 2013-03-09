@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223125327) do
+ActiveRecord::Schema.define(:version => 20130306172458) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "authors", ["name"], :name => "index_authors_on_name", :unique => true
+
+  create_table "authors_books", :id => false, :force => true do |t|
+    t.integer "author_id"
+    t.integer "book_id"
+  end
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -20,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20130223125327) do
     t.date     "publishing_date"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.string   "author"
     t.integer  "pages"
     t.string   "cover_file_name"
     t.string   "cover_content_type"

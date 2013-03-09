@@ -1,3 +1,56 @@
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('#new-author').keydown(function(event)
+    {
+      if(event.which == 13)
+      {
+        event.preventDefault();
+        
+        if($(this).val() != '')
+        {
+          $.ajax({
+            url: '<%= authors_url %>',
+            type: 'post',
+            dataType: 'json',
+            data: {
+              'author[name]': $(this).val()
+            },
+            success: function(response)
+            {
+              if(response.errors)
+              {
+
+              }
+              else
+              {
+                $('#authors').prepend(
+                  $('<li>').append(
+                    $('<input>').attr({
+                      type: 'checkbox',
+                      name: 'book[author_ids][]',
+                      id: 'author_' + response.id,
+                      checked: true
+                    }).val(response.id).addClass('author-checkbox')
+                  ).append(
+                    $('<button>').attr({
+                      type: 'button'
+                    }).addClass('btn btn-mini author active').append(
+                      $('<i>').addClass('icon-ok')
+                    ).append(
+                      $('<span>').text(response.name)
+                    )
+                  )
+                )
+              }
+            }
+          });
+        }
+      }
+    });
+  });
+</script>
+
 <%= form_for @book, html: { multipart: true } do |form| %>
   <div id="cover" class="fileupload fileupload-new pull-left" data-provides="fileupload">
     <div class="fileupload-new thumbnail img-polaroid">
@@ -20,8 +73,24 @@
     <%= form.text_area :description, class: 'span7' %>
   </div>
   <div id="details" class="pull-left span2">
-    <%= form.label :author %>
-    <%= form.text_field :author, class: 'input-medium' %>
+    <label>Authors:</label>
+    <div id="new-author-wrapper" class="input-append">
+      <%= text_field_tag 'new-author', nil, autocomplete: 'off' %>
+      <span class="add-on"><i id="new-author-help" class="icon-question-sign"></i></span>
+    </div>
+    <ul id="authors" class="btn-group well unstyled" data-toggle="buttons-checkbox">
+        <% @authors.each do |author| %>
+          <li>
+            <%= check_box_tag 'book[author_ids][]', author.id,
+                              @book.author_ids.include?(author.id),
+                              id: dom_id(author), class: 'author-checkbox' %>
+            <%= button_tag type: 'button', class: 'btn btn-mini author' do %>
+                <i class="icon-remove" ></i>
+                <span><%= author.name %></span>
+            <% end %>
+          </li>
+        <% end %>
+    </ul>
     <%= form.label :publishing_date %>
     <%= form.text_field :publishing_date, class: 'input-medium' %>
     <%= form.label :pages %>

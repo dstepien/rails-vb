@@ -1,5 +1,17 @@
 <h2><%= @book.title %></h2>
-<h4><em><%= @book.author %></em></h4>
+<h4>
+  <em>
+    <% if @book.authors.empty? %>
+      -
+    <% else %>
+      <%= 'by ' %>
+      <% @book.authors.each_with_index do |author, i| %>
+        <% author.name.concat(',') unless @book.authors.length - 1 == i %>
+        <%= author.name %>
+      <% end %>
+    <% end %>
+  </em>
+</h4>
 <a href="<%= @book.cover.url %>" class="fancybox">
   <%= image_tag @book.cover.url(:medium), class: 'pull-left img-polaroid' %>
 </a>

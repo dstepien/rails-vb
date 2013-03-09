@@ -24,7 +24,13 @@
           <strong><%= link_to book.title, book %></strong>
         </td>
         <td class="author">
-          <%= book.author %>
+          <% if book.authors.empty? %>
+            -
+          <% else %>
+            <% book.authors.each do |author| %>
+              <%= author.name %><br />
+            <% end %>
+          <% end %>
         </td>
         <td class="published">
           <%= book.publishing_date %>

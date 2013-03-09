@@ -1,0 +1,15 @@
+// Place all the styles related to the Authors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.authors-controller.index-action {
+  .list {
+    .name {
+      vertical-align: middle;
+      font-size: 17px;
+    }
+    .actions {
+      width: 100px;
+      text-align: center;
+    }
+  }
+}

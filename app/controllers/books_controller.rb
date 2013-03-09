@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Book.paginate(page: params[:page], per_page: 10)
+    @page_title = t('titles.books.index')
   end
 
   def show
@@ -8,20 +9,16 @@ class BooksController < ApplicationController
     @page_title = @book.title
   end
 
-  # GET /books/new
-  # GET /books/new.json
   def new
     @book = Book.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @book }
-    end
+    @authors = Author.order(:name)
+    @page_title = t('titles.books.new')
   end
 
-  # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
+    @authors = Author.order(:name)
+    @page_title = @book.title
   end
 
   def create
@@ -34,31 +31,21 @@ class BooksController < ApplicationController
     end
   end
 
-  # PUT /books/1
-  # PUT /books/1.json
   def update
     @book = Book.find(params[:id])
+    @book.authors.destroy_all unless params[:book].has_key?('author_ids')
 
-    respond_to do |format|
-      if @book.update_attributes(params[:book])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+    if @book.update_attributes(params[:book])
+      redirect_to @book, notice: 'Book was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
 
-    respond_to do |format|
-      format.html { redirect_to books_url }
-      format.json { head :no_content }
-    end
+    redirect_to books_url
   end
 end
