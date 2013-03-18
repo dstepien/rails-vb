@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
 gem 'bootstrap_helper'
 gem 'fancybox-rails'
+gem 'bcdatabase', '~> 1.2.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,7 +27,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.14.1'
 end
 
 group :test do
