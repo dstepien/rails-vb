@@ -22,10 +22,7 @@ doc/
 .DS_Store
 .idea
 /coverage
-public/images/*
-!public/images/books
-public/images/books/*
-!public/images/books/default
+/public/uploads
 
 # Ignore deploy configuration
 /config/deploy.rb

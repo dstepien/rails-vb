@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :authors
 
   has_attached_file :cover, styles: { medium: '230x230>', edit: '165x165>', thumb: '60x60>' },
-                    url: '/images/books/:id/:style/:basename.:extension',
-                    path: ':rails_root/public/images/books/:id/:style/:basename.:extension',
-                    default_url: '/images/books/default/:style/missing.gif'
+                    url: '/uploads/img/books/:id/:style/:basename.:extension',
+                    path: ':rails_root/public/uploads/img/books/:id/:style/:basename.:extension',
+                    default_url: '/uploads/img/books/default/:style/missing.gif'
 end
