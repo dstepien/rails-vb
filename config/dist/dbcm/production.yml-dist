@@ -1,0 +1,8 @@
+defaults:
+  adapter: postgresql
+  encoding: utf8
+  database: <DATABASE>
+  pool: 5
+  username: <USERNAME>
+  password: <PASSWORD>
+  host: <HOST>

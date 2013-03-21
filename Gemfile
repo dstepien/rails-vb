@@ -1,10 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem "will_paginate", "~> 3.0.4"
 gem 'bootstrap-will_paginate', '~> 0.0.9'
@@ -13,6 +9,8 @@ gem 'paperclip', '~> 3.0'
 gem 'bootstrap_helper'
 gem 'fancybox-rails'
 gem 'bcdatabase', '~> 1.2.2'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,9 +40,6 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

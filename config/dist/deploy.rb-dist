@@ -1,0 +1,32 @@
+require 'rvm/capistrano'
+require 'bundler/capistrano'
+
+set :application, '<APPLICATION>'
+set :user, '<USER>>'
+set :domain, '<DOMAIN>>'
+set :port, '<PORT>'
+set :repository, '<REPOSITORY>'
+set :scm, :git
+set :deploy_to, '<DEPLOY_TO>'
+set :use_sudo, false
+set :rvm_ruby_string, '<RVM_RUBY_STRING>'
+set :rvm_type, '<RVM_TYPE>'
+
+server domain, :web, :app, :db, primary: true
+
+default_run_options[:pty] = true
+
+after 'deploy', 'deploy:migrate'
+
+namespace :deploy do
+   task :start do ; end
+   task :stop do ; end
+   desc 'Cause Passenger to initiate a restart'
+   task :restart, roles: :app, except: { no_release: true } do
+     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+   end
+   desc 'Reload the database with seed data'
+   task :seed do
+     run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+   end
+ end

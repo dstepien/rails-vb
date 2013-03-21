@@ -26,3 +26,6 @@ public/images/*
 !public/images/books
 public/images/books/*
 !public/images/books/default
+
+# Ignore deploy configuration
+/config/deploy.rb
