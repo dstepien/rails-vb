@@ -8,5 +8,5 @@ class Book < ActiveRecord::Base
   has_attached_file :cover, styles: { medium: '230x230>', edit: '165x165>', thumb: '60x60>' },
                     url: '/uploads/img/books/:id/:style/:basename.:extension',
                     path: ':rails_root/public/uploads/img/books/:id/:style/:basename.:extension',
-                    default_url: '/uploads/img/books/default/:style/missing.gif'
+                    default_url: '/assets/books/default/:style/question-mark.gif'
 end
