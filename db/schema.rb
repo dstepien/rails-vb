@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306172458) do
+ActiveRecord::Schema.define(:version => 20130304160556) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20130306172458) do
     t.integer "author_id"
     t.integer "book_id"
   end
+
+  add_index "authors_books", ["author_id", "book_id"], :name => "index_authors_books_on_author_id_and_book_id", :unique => true
 
   create_table "books", :force => true do |t|
     t.string   "title"
