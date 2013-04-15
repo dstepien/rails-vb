@@ -1,6 +1,7 @@
 /*
  *= require bootstrap-fileupload
  *= require fancybox
+ *= require jquery.ui.datepicker
  */
 
 .books-controller.index-action {
@@ -70,7 +71,7 @@
     #new-author {
       width: 123px;
     }
-    .icon-question-sign {
+    .add-on {
       cursor: pointer;
     }
     #authors {
@@ -99,6 +100,9 @@
     }
     .author-checkbox {
       display: none;
+    }
+    #book_publishing_date {
+      width: 123px;
     }
   }
   #actions {

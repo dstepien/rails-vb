@@ -1,5 +1,6 @@
 #= require bootstrap-fileupload
 #= require jquery.fancybox.patched
+#= require jquery.ui.datepicker
 
 $ ->
   $('a.fancybox').fancybox({
@@ -40,3 +41,16 @@ $ ->
     ( -> $('#new-author-wrapper').tooltip('show')),
     ( -> $('#new-author-wrapper').tooltip('hide'))
   )
+
+  $('#book_publishing_date').datepicker({
+    dateFormat: 'dd.mm.yy',
+    maxDate: '0',
+    changeYear: true,
+    yearRange: '1800:-',
+    changeMonth: true
+  });
+
+  $('#publishing-date-icon').click( ->
+    $('#book_publishing_date').datepicker('show');
+  );
+

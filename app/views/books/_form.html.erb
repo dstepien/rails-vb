@@ -20,29 +20,27 @@
             {
               if(response.errors)
               {
-
+                  return;
               }
-              else
-              {
-                $('#authors').prepend(
-                  $('<li>').append(
-                    $('<input>').attr({
-                      type: 'checkbox',
-                      name: 'book[author_ids][]',
-                      id: 'author_' + response.id,
-                      checked: true
-                    }).val(response.id).addClass('author-checkbox')
+
+              $('#authors').prepend(
+                $('<li>').append(
+                  $('<input>').attr({
+                    type: 'checkbox',
+                    name: 'book[author_ids][]',
+                    id: 'author_' + response.id,
+                    checked: true
+                  }).val(response.id).addClass('author-checkbox')
+                ).append(
+                  $('<button>').attr({
+                    type: 'button'
+                  }).addClass('btn btn-mini author active').append(
+                    $('<i>').addClass('icon-ok')
                   ).append(
-                    $('<button>').attr({
-                      type: 'button'
-                    }).addClass('btn btn-mini author active').append(
-                      $('<i>').addClass('icon-ok')
-                    ).append(
-                      $('<span>').text(response.name)
-                    )
+                    $('<span>').text(response.name)
                   )
                 )
-              }
+              )
             }
           });
         }
@@ -92,7 +90,10 @@
         <% end %>
     </ul>
     <%= form.label :publishing_date %>
-    <%= form.text_field :publishing_date, class: 'input-medium' %>
+    <div id="publishing-date-wrapper" class="input-append">
+      <%= form.text_field :publishing_date, class: 'input-medium' %>
+      <span class="add-on"><i id="publishing-date-icon" class="icon-calendar"></i></span>
+    </div>
     <%= form.label :pages %>
     <%= form.text_field :pages, class: 'input-mini' %>
     <%= form.label :isbn %>

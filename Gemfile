@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '~> 2.2.2.0'
 gem "will_paginate", "~> 3.0.4"
 gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'paperclip', '~> 3.0'
 gem 'bootstrap_helper'
 gem 'fancybox-rails'
