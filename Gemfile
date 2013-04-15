@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem "will_paginate", "~> 3.0.4"
 gem 'bootstrap-will_paginate', '~> 0.0.9'
@@ -30,6 +30,8 @@ end
 
 group :test do
   gem 'simplecov', require: false
+  gem 'minitest'
+  gem 'minitest-reporters', '>= 0.5.0'
 end
 
 # To use ActiveModel has_secure_password
